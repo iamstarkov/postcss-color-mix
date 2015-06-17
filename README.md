@@ -1,6 +1,6 @@
 # postcss-color-mix
 
-> Mix two colors together
+> Mix two colors together in [PostCSS][PostCSS]
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -17,36 +17,32 @@ in the returned color. The default, 50%, means that half the first color
 and half the second color should be used. 25% means that a quarter
 of the first color and three quarters of the second color should be used.
 
+## Install
 
-[PostCSS] plugin color mix function ported from SASS.
-
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/iamstarkov/postcss-color-mix.svg
-[ci]:      https://travis-ci.org/iamstarkov/postcss-color-mix
-
-```css
-.foo {
-    /* Input example */
-}
-```
-
-```css
-.foo {
-  /* Output example */
-}
-```
+    npm install --save postcss-color-mix
 
 ## Usage
 
-```js
-postcss([ require('postcss-color-mix') ])
-```
+    postcss([ require('postcss-color-mix') ])
 
 See [PostCSS] docs for examples for your environment.
+
+
+```css
+.foo {
+  color: mix(#f00, #00f);      /* #7f007f */
+  color: mix(#f00, #00f, 25%); /* #3f00bf */
+  color: mix(rgba(255, 0, 0, 0.5), #00f); /* rgba(63, 0, 191, 0.75) */
+}
+```
+
 
 ## License
 
 MIT © [Vladimir Starkov](https://iamstarkov.com/)
+
+
+[PostCSS]: https://github.com/postcss/postcss
 
 [npm-url]: https://npmjs.org/package/postcss-color-mix
 [npm-image]: https://img.shields.io/npm/v/postcss-color-mix.svg?style=flat-square
