@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "Mix two colors together in PostCSS",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha --require babel/register",
+    "tdd": "npm test -- --watch"
+  },
   "dependencies": {
     "chai": "^2.3.0",
     "gulp": "^3.9.0",
@@ -10,9 +14,12 @@
     "gulp-mocha": "^2.1.1",
     "postcss": "^4.1.11"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.15",
+    "mocha": "^2.2.5",
+    "mocha-lcov-reporter": "0.0.2"
   },
   "repository": {
     "type": "git",
