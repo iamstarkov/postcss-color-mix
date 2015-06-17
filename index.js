@@ -1,13 +1,7 @@
-var postcss = require('postcss');
+import postcss from 'postcss';
 
-module.exports = postcss.plugin('postcss-color-mix', function (opts) {
-    opts = opts || {};
-
-    // Work with options here
-
-    return function (css) {
-
-        // Transform CSS AST here
-
-    };
-});
+export default postcss.plugin('postcss-color-mix', () =>
+  (css) => {
+    // YOLO
+  };
+);
