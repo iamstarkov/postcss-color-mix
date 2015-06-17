@@ -9,11 +9,7 @@
   },
   "dependencies": {
     "balanced-match": "^0.2.0",
-    "chai": "^2.3.0",
     "color": "^0.8.0",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^0.12.0",
-    "gulp-mocha": "^2.1.1",
     "postcss": "^4.1.11",
     "postcss-message-helpers": "^2.0.0"
   },
