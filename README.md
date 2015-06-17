@@ -41,7 +41,6 @@ See [PostCSS] docs for examples for your environment.
 
 MIT © [Vladimir Starkov](https://iamstarkov.com/)
 
-
 [PostCSS]: https://github.com/postcss/postcss
 
 [npm-url]: https://npmjs.org/package/postcss-color-mix
