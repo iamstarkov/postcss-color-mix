@@ -21,4 +21,10 @@ describe('postcss-color-mix', function () {
         test('a{ }', 'a{ }', { }, done);
     });*/
 
+  /*
+  mix(#f00, #00f)  #7f007f
+  mix(#f00, #00f, 25%) => #3f00bf
+  mix(rgba(255, 0, 0, 0.5), #00f) => rgba(63, 0, 191, 0.75)
+  */
+
 });
