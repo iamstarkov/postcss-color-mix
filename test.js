@@ -15,20 +15,20 @@ const verify = function(input, output, done) {
 it('mix two hex colors without weight', (done)=> {
   verify(
     `a { color: mix(#f00, #00f); }`,
-    `a { color: #7f007f; }`,
+    `a { color: #800080; }`,
   done);
 });
 
 it('mix two hex colors with weight', (done)=> {
   verify(
     `a { color: mix(#f00, #00f, 25%); }`,
-    `a { color: #3f00bf; }`,
+    `a { color: #4000bf; }`,
   done);
 });
 
 it('mix hex color with rgba one with weight', (done)=> {
   verify(
     `a { color: mix(rgba(255, 0, 0, 0.5), #00f); }`,
-    `a { color: rgba(63, 0, 191, 0.75); }`,
+    `a { color: rgba(64, 0, 191, 0.75); }`,
   done);
 });
