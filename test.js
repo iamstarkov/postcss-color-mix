@@ -26,7 +26,7 @@ it('mix two hex colors with weight', (done)=> {
   done);
 });
 
-it('mix hex color with rgba one with weight', (done)=> {
+it.skip('mix hex color with rgba one with weight', (done)=> {
   verify(
     `a { color: mix(rgba(255, 0, 0, 0.5), #00f); }`,
     `a { color: rgba(64, 0, 191, 0.75); }`,
