@@ -3,7 +3,10 @@ import balanced from 'balanced-match';
 import Color from 'color';
 import { try as postcssTry } from 'postcss-message-helpers';
 
-const mix = (c1, c2, weight) => Color(c1).mix(Color(c2), weight).hexString();
+const mix = (c1, c2, weight) => {
+  var mixed = Color(c1).mix(Color(c2), weight);
+  return mixed.alpha() < 1 ? mixed.rgbaString() : mixed.hexString();
+};
 
 const transformColor = (string, source) => {
   if (string.indexOf('mix(') === -1) {
