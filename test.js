@@ -7,7 +7,7 @@ const verify = function(input, expected, done) {
     .process(input)
     .then((result) => {
       equal(result.css, expected);
-      equal(result.warnings(), null);
+      equal(result.warnings().length, 0);
       done();
     }).catch((error) => { done(error); });
 };
