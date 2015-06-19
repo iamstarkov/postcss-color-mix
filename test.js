@@ -2,11 +2,11 @@ import { equal } from 'assert';
 import postcss from 'postcss';
 import mix from './index';
 
-const verify = function(input, output, done) {
+const verify = function(input, expected, done) {
   postcss([ mix() ])
     .process(input)
     .then((result) => {
-      equal(output, result.css);
+      equal(result.css, expected);
       equal(result.warnings(), null);
       done();
     }).catch((error) => { done(error); });
