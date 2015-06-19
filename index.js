@@ -17,7 +17,7 @@ const transformColor = (string, source) => {
 
   if (!mixArgs) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
 
-  const args = mixArgs.body.split(/,\s?(?![^()]*\))/);
+  const args = mixArgs.body.split(/,\s*(?![^()]*\))/);
   return mix(args[0], args[1], (args[2] || '').replace('%', ''));
 };
 
