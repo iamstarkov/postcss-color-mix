@@ -8,7 +8,10 @@
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha --require babel/register",
-    "tdd": "npm test -- --watch"
+    "tdd": "npm test -- --watch",
+    "transpile": "babel index.js > index.es5.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm *.es5.js && git push --follow-tags"
   },
   "dependencies": {
     "balanced-match": "^0.2.0",
