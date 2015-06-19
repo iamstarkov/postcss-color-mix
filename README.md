@@ -30,11 +30,9 @@ See [PostCSS] docs for examples for your environment.
 
 ```css
 .foo {
-  color: mix(#f00, #00f);      /* #7f007f */
-  color: mix(#f00, #00f, 25%); /* #3f00bf */
-
-  /* @TODO */
-  color: mix(rgba(255, 0, 0, 0.5), #00f);  /* rgba(63, 0, 191, 0.75) */
+  color: mix(#f00, #00f);      /*  #800080  */
+  color: mix(#f00, #00f, 25%); /*  #4000BF  */
+  color: mix(rgba(255, 0, 0, 0.5), #00f); /*  rgba(64, 0, 191, 0.75)  */
 }
 ```
 
