@@ -3,7 +3,8 @@ import balanced from 'balanced-match';
 import Color from 'color';
 import { try as postcssTry } from 'postcss-message-helpers';
 
-const mix = (c1, c2, weight) => {
+const mix = (c1, c2, w) => {
+  var weight = (w || '').replace('%', '');
   var mixed = Color(c1).mix(Color(c2), weight);
   return mixed.alpha() < 1 ? mixed.rgbaString() : mixed.hexString();
 };
@@ -13,12 +14,11 @@ const transformColor = (string, source) => {
     return string;
   }
 
-  var mixArgs = balanced('(', ')', string);
+  var value = balanced('(', ')', string).body;
 
-  if (!mixArgs) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
+  if (!value) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
 
-  const args = mixArgs.body.split(/,\s*(?![^()]*\))/);
-  return mix(args[0], args[1], (args[2] || '').replace('%', ''));
+  return mix.apply(null, value.split(/,\s*(?![^()]*\))/));
 };
 
 const transformDecl = (decl) => {
