@@ -4,6 +4,9 @@
   "description": "Mix two colors together in PostCSS",
   "main": "index.js",
   "scripts": {
+    "coverage": "istanbul cover _mocha -- --require babel/register",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha --require babel/register",
     "tdd": "npm test -- --watch"
   },
