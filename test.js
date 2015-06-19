@@ -22,7 +22,7 @@ it('mix two hex colors without weight', (done)=> {
 it('mix two hex colors with weight', (done)=> {
   verify(
     `a { color: mix(#f00, #00f, 25%); }`,
-    `a { color: #4000bf; }`,
+    `a { color: #4000BF; }`,
   done);
 });
 
