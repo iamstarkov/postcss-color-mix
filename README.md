@@ -1,12 +1,11 @@
 # postcss-color-mix
 
-> Mix two colors together in [PostCSS][PostCSS]
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+
+> Mix two colors together in [PostCSS][PostCSS]
 
 Mixes two colors together. Specifically, takes the average
 of each of the RGB components, optionally weighted by the given percentage.
@@ -27,7 +26,6 @@ of the first color and three quarters of the second color should be used.
 
 See [PostCSS] docs for examples for your environment.
 
-
 ```css
 .foo {
   color: mix(#f00, #00f);      /*  #800080  */
@@ -35,7 +33,6 @@ See [PostCSS] docs for examples for your environment.
   color: mix(rgba(255, 0, 0, 0.5), #00f); /*  rgba(64, 0, 191, 0.75)  */
 }
 ```
-
 
 ## License
 
@@ -53,7 +50,4 @@ MIT © [Vladimir Starkov](https://iamstarkov.com/)
 [coveralls-image]: https://img.shields.io/coveralls/iamstarkov/postcss-color-mix.svg?style=flat-square
 
 [depstat-url]: https://david-dm.org/iamstarkov/postcss-color-mix
-[depstat-image]: https://img.shields.io/david/iamstarkov/postcss-color-mix.svg?style=flat-square
-
-[depstat-dev-url]: https://david-dm.org/iamstarkov/postcss-color-mix
-[depstat-dev-image]: https://img.shields.io/david/dev/iamstarkov/postcss-color-mix.svg?style=flat-square
+[depstat-image]: https://david-dm.org/iamstarkov/postcss-color-mix.svg?style=flat-square
