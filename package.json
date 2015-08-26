@@ -16,7 +16,7 @@
   "dependencies": {
     "balanced-match": "^0.2.0",
     "color": "^0.9.0",
-    "postcss": "^4.1.11",
+    "postcss": "^5.0.2",
     "postcss-message-helpers": "^2.0.0"
   },
   "devDependencies": {

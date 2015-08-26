@@ -30,5 +30,5 @@ const transformDecl = (decl) => {
 };
 
 export default postcss.plugin('postcss-color-mix', () =>
-  (style) => { style.eachDecl(transformDecl); }
+  (style) => { style.walkDecls(transformDecl); }
 );
