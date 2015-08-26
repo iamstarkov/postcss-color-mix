@@ -4,14 +4,16 @@
   "description": "Mix two colors together in PostCSS",
   "main": "index.es5.js",
   "scripts": {
-    "coverage": "istanbul cover _mocha -- --require babel/register",
+    "coverage": "isparta cover _mocha index.js -- --require babel/register",
     "precoveralls": "npm run coverage",
     "coveralls": "coveralls < coverage/lcov.info",
     "test": "mocha --require babel/register",
     "tdd": "npm test -- --watch",
     "transpile": "babel index.js > index.es5.js",
     "prepublish": "npm run transpile",
-    "postpublish": "rm *.es5.js && git push --follow-tags"
+    "clean": "trash index.es5.js",
+    "push": "git push --follow-tags",
+    "postpublish": "npm-run-all clean push"
   },
   "dependencies": {
     "balanced-match": "^0.2.0",
@@ -20,11 +22,13 @@
     "postcss-message-helpers": "^2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.5.8",
-    "coveralls": "^2.11.2",
-    "istanbul": "^0.3.15",
-    "mocha": "^2.2.5",
-    "mocha-lcov-reporter": "0.0.2"
+    "assert": "*",
+    "babel": "*",
+    "coveralls": "*",
+    "isparta": "*",
+    "mocha": "*",
+    "npm-run-all": "*",
+    "trash": "*"
   },
   "repository": {
     "type": "git",
