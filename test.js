@@ -19,9 +19,16 @@ it('mix two hex colors without weight', (done)=> {
   done);
 });
 
-it('mix two hex colors with weight', (done)=> {
+it('mix two hex colors with weight as percentage', (done)=> {
   verify(
     `a { color: mix(#f00, #00f, 25%); }`,
+    `a { color: #4000BF; }`,
+  done);
+});
+
+it('mix two hex colors with weight as rational number', (done)=> {
+  verify(
+    `a { color: mix(#f00, #00f, 0.25); }`,
     `a { color: #4000BF; }`,
   done);
 });

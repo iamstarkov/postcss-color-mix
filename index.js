@@ -4,7 +4,7 @@ import Color from 'color';
 import { try as postcssTry } from 'postcss-message-helpers';
 
 const mix = (c1, c2, w='') => {
-  const weight = w.replace('%', '');
+  const weight = w.endsWith('%') ? w.replace('%', '') : w * 100;
   const mixed = Color(c1).mix(Color(c2), weight);
   return mixed.alpha() < 1 ? mixed.rgbaString() : mixed.hexString();
 };
