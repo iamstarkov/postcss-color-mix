@@ -10,6 +10,7 @@
 Mixes two colors together. Specifically, takes the average
 of each of the RGB components, optionally weighted by the given percentage.
 The opacity of the colors is also considered when weighting the components.
+[I borrowed implementation from Sass][sass].
 
 The weight specifies the amount of the first color that should be included
 in the returned color. The default, 50%, means that half the first color
@@ -39,6 +40,8 @@ See [PostCSS] docs for examples for your environment.
 
 MIT © [Vladimir Starkov](https://iamstarkov.com/)
 
+
+[sass]: http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
 [PostCSS]: https://github.com/postcss/postcss
 
 [npm-url]: https://npmjs.org/package/postcss-color-mix
