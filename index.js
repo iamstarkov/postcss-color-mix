@@ -9,8 +9,26 @@ const mix = (c1, c2, w='') => {
   return mixed.alpha() < 1 ? mixed.rgbaString() : mixed.hexString();
 };
 
+const shade = (c, w) => mix('#000', c, w);
+
+const tint = (c, w) => mix('#fff', c, w);
+
+const getTransform = (string) => {
+  if (string.indexOf('mix(') !== -1) {
+    return mix;
+  } else if (string.indexOf('shade(') !== -1) {
+    return shade;
+  } else if (string.indexOf('tint(') !== -1) {
+    return tint;
+  } else {
+    return false;
+  }
+};
+
 const transformColor = (string, source) => {
-  if (string.indexOf('mix(') === -1) {
+  const transform = getTransform(string);
+
+  if (!transform) {
     return string;
   }
 
@@ -18,11 +36,11 @@ const transformColor = (string, source) => {
 
   if (!value) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
 
-  return mix.apply(null, value.split(/,\s*(?![^()]*\))/));
+  return transform.apply(null, value.split(/,\s*(?![^()]*\))/));
 };
 
 const transformDecl = (decl) => {
-  if (!decl.value || decl.value.indexOf('mix(') === -1) {
+  if (!decl.value) {
     return;
   }
 

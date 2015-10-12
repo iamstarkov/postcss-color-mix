@@ -39,3 +39,17 @@ it('mix hex color with rgba one with weight', (done)=> {
     `a { color: rgba(64, 0, 191, 0.75); }`,
   done);
 });
+
+it('shade color', (done)=> {
+  verify(
+    `a { color: shade(#f00, 25%); }`,
+    `a { color: #BF0000; }`,
+  done);
+});
+
+it('tint color', (done)=> {
+  verify(
+    `a { color: tint(#f00, 25%); }`,
+    `a { color: #FF4040; }`,
+  done);
+});

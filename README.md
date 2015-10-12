@@ -17,6 +17,8 @@ in the returned color. The default, 50%, means that half the first color
 and half the second color should be used. 25% means that a quarter
 of the first color and three quarters of the second color should be used.
 
+Shorthands `shade` and `tint` may be used to mix with black and white correspondingly.
+
 ## Install
 
     npm install --save postcss-color-mix
@@ -33,6 +35,8 @@ See [PostCSS] docs for examples for your environment.
   color: mix(#f00, #00f, 25%); /*  #4000BF  */
   color: mix(#f00, #00f, .25); /*  #4000BF  */
   color: mix(rgba(255, 0, 0, 0.5), #00f); /*  rgba(64, 0, 191, 0.75)  */
+  color: shade(#f00, 25%);     /*  #BF0000  */
+  color: tint(#f00, 25%);      /*  #FF4040  */
 }
 ```
 
