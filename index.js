@@ -14,33 +14,24 @@ const shade = (c, w) => mix('#000', c, w);
 const tint = (c, w) => mix('#fff', c, w);
 
 const getTransform = (string) => {
-  if (string.indexOf('mix(') !== -1) {
-    return mix;
-  } else if (string.indexOf('shade(') !== -1) {
+  if (string.indexOf('shade(') !== -1) {
     return shade;
   } else if (string.indexOf('tint(') !== -1) {
     return tint;
   } else {
-    return false;
+    return mix;
   }
 };
 
 const transformColor = (string, source) => {
   const transform = getTransform(string);
-
-  if (!transform) {
-    return string;
-  }
-
   const value = balanced('(', ')', string).body;
-
-  if (!value) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
 
   return transform.apply(null, value.split(/,\s*(?![^()]*\))/));
 };
 
 const transformDecl = (decl) => {
-  if (!decl.value) {
+  if (!decl.value || decl.value.search(/^(mix|shade|tint)\(/) === -1) {
     return;
   }
 

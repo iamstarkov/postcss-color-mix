@@ -1,4 +1,4 @@
-import { equal } from 'assert';
+import { equal, throws } from 'assert';
 import postcss from 'postcss';
 import mix from './index';
 
@@ -51,5 +51,12 @@ it('tint color', (done)=> {
   verify(
     `a { color: tint(#f00, 25%); }`,
     `a { color: #FF4040; }`,
+  done);
+});
+
+it('retain standard color', (done)=> {
+  verify(
+    `a { color: #f00; }`,
+    `a { color: #f00; }`,
   done);
 });
