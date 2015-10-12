@@ -31,7 +31,8 @@ const transformColor = (string, source) => {
 };
 
 const transformDecl = (decl) => {
-  if (!decl.value || decl.value.search(/^(mix|shade|tint)\(/) === -1) {
+  const pattern = /^mix|shade|tint\(.+\)$/;
+  if (!decl.value || !pattern.test(decl.value.toLowerCase())) {
     return;
   }
 
