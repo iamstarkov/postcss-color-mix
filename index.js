@@ -14,9 +14,9 @@ const shade = (c, w) => mix('#000', c, w);
 const tint = (c, w) => mix('#fff', c, w);
 
 const getTransform = (string) => {
-  if (string.indexOf('shade(') !== -1) {
+  if (string.startsWith('shade')) {
     return shade;
-  } else if (string.indexOf('tint(') !== -1) {
+  } else if (string.startsWith('tint')) {
     return tint;
   } else {
     return mix;
@@ -26,8 +26,7 @@ const getTransform = (string) => {
 const transformColor = (string, source) => {
   const transform = getTransform(string);
   const value = balanced('(', ')', string).body;
-
-  return transform.apply(null, value.split(/,\s*(?![^()]*\))/));
+  return transform(...value.split(/,\s*(?![^()]*\))/));
 };
 
 const transformDecl = (decl) => {
@@ -36,7 +35,7 @@ const transformDecl = (decl) => {
     return;
   }
 
-  decl.value = postcssTry(() => transformColor(decl.value, decl.source), decl.source )
+  decl.value = postcssTry(() => transformColor(decl.value, decl.source), decl.source);
 };
 
 export default postcss.plugin('postcss-color-mix', () =>
