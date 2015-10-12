@@ -1,4 +1,4 @@
-import { equal } from 'assert';
+import { equal, throws } from 'assert';
 import postcss from 'postcss';
 import mix from './index';
 
@@ -37,5 +37,26 @@ it('mix hex color with rgba one with weight', (done)=> {
   verify(
     `a { color: mix(rgba(255, 0, 0, 0.5), #00f); }`,
     `a { color: rgba(64, 0, 191, 0.75); }`,
+  done);
+});
+
+it('shade color', (done)=> {
+  verify(
+    `a { color: shade(#f00, 25%); }`,
+    `a { color: #BF0000; }`,
+  done);
+});
+
+it('tint color', (done)=> {
+  verify(
+    `a { color: tint(#f00, 25%); }`,
+    `a { color: #FF4040; }`,
+  done);
+});
+
+it('retain standard color', (done)=> {
+  verify(
+    `a { color: #f00; }`,
+    `a { color: #f00; }`,
   done);
 });

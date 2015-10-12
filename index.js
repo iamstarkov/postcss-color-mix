@@ -9,24 +9,33 @@ const mix = (c1, c2, w='') => {
   return mixed.alpha() < 1 ? mixed.rgbaString() : mixed.hexString();
 };
 
-const transformColor = (string, source) => {
-  if (string.indexOf('mix(') === -1) {
-    return string;
+const shade = (c, w) => mix('#000', c, w);
+
+const tint = (c, w) => mix('#fff', c, w);
+
+const getTransform = (string) => {
+  if (string.startsWith('shade')) {
+    return shade;
+  } else if (string.startsWith('tint')) {
+    return tint;
+  } else {
+    return mix;
   }
+};
 
+const transformColor = (string, source) => {
+  const transform = getTransform(string);
   const value = balanced('(', ')', string).body;
-
-  if (!value) { throw new Error(`Missing closing parentheses in "${string}"`, source); }
-
-  return mix.apply(null, value.split(/,\s*(?![^()]*\))/));
+  return transform(...value.split(/,\s*(?![^()]*\))/));
 };
 
 const transformDecl = (decl) => {
-  if (!decl.value || decl.value.indexOf('mix(') === -1) {
+  const pattern = /^mix|shade|tint\(.+\)$/;
+  if (!decl.value || !pattern.test(decl.value.toLowerCase())) {
     return;
   }
 
-  decl.value = postcssTry(() => transformColor(decl.value, decl.source), decl.source )
+  decl.value = postcssTry(() => transformColor(decl.value, decl.source), decl.source);
 };
 
 export default postcss.plugin('postcss-color-mix', () =>
