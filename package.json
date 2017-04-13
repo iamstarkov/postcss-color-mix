@@ -16,8 +16,8 @@
     "postpublish": "npm-run-all clean push"
   },
   "dependencies": {
-    "balanced-match": "^0.2.0",
-    "color": "^0.9.0",
+    "balanced-match": "^0.4.2",
+    "color": "^1.0.3",
     "postcss": "^5.0.2",
     "postcss-message-helpers": "^2.0.0"
   },
